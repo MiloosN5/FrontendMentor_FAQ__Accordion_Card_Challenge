@@ -32,7 +32,7 @@ This is a solution to the [FAQ accordion card challenge on Frontend Mentor](http
 
 ### Links
 
-- Solution URL: [My solution URL](https://github.com/MiloosN5/ProfileCardComponent_Challenge)
+- Solution URL: [My solution URL](https://github.com/MiloosN5/FrontendMentor_FAQ__Accordion_Card_Challenge)
 - Live Site URL: [My live site URL](https://miloosn5.github.io/ProfileCardComponent_Challenge/)
 
 
