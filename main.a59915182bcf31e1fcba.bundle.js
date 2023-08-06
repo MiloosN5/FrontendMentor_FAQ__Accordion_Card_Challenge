@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=document.querySelector(".FAQ__box svg > g"),s=document.querySelector(".FAQ"),o=document.querySelector(".FAQ__box");e.addEventListener("click",(()=>{o.classList.contains("boxMove")?(s.classList.remove("FAQMove"),o.classList.remove("boxMove")):(s.classList.add("FAQMove"),o.classList.add("boxMove"))}))})();
