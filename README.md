@@ -54,65 +54,65 @@ This is a solution to the [FAQ accordion card challenge on Frontend Mentor](http
 ### What I learned
 
 * This project has two main tasks - building accordion for frequently common questions (FAQ) & accurate positioning of the elements.
-* Positioning:
-    Positioning in this challenge is tricky. There is need to find relation between several elements - illustration, shadow, box & main card. 
-    The layout is consists of two main parts: decorative_images & content(questions). Both parts are positioned relative to its parent. However, in their relation, we have overlapping. We can achieve this with setting negative value for margin-top of the content part. 
-    Decorative_images part will be divided into two groups: illustration+shadow wrapper and box. Reason for separating illustration and shadow from box lay in the desktop layout, where we need to hide illustration+shadow beyond FAQ container but keep full image of box. Since the illustration is the main thing here, we will observe everything in relation to it. Its position will be set to be 'relative'. Shadow & box depends on the illustration, so their position will be set to 'absolute' in order to follow illustration. Important thing to mention that in our case, 'shadow' & 'box' as absolute, depend on their parent. Illustration is not their parent. Parent for 'shadow' is wrapper for illustration+shadow, and parent for 'box' is 'decorative_images' where all them is grouped together. 
+* ***Positioning***:
+    Positioning in this challenge is tricky. There is need to find relation between several elements - *illustration*, *shadow*, *box* & *main card*. 
+    The layout is consists of two main parts: *decorative_images* & *content(questions)*. Both parts are positioned relative to its parent. However, in their relation, we have overlapping. We can achieve this with setting negative value for <code>margin-top</code> of the content part. 
+    *Decorative_images* part will be divided into two groups: *illustration+shadow wrapper* and *box*. Reason for separating *illustration* and *shadow* from *box* lay in the desktop layout, where we need to hide illustration+shadow beyond FAQ container but keep full image of box. Since the illustration is the main thing here, we will observe everything in relation to it. Its position will be set to be <code>relative</code>. *Shadow* & *box* depends on the *illustration*, so their position will be set to <code>absolute</code> in order to follow illustration. Important thing to mention that in our case, *shadow* & *box* as <code>absolute</code>, depend on their parent. *Illustration* is not their parent. Parent for *shadow* is wrapper for illustration+shadow, and parent for *box* is *decorative_images* where all them is grouped together. <br/>
     **Desktop**
-    When layout reached desktop breakpoint, relations stayed the same but there are difference in some other settings. These settings includes: width, paddings, margins and such things. In desktop scenario, our box email & whole wrapper need to move when clicking. Since the 'box email' image includes extra parts and we need for clicking only on box, its better include svg code in html instead of img. In our case, box code is grouped inside <g> tag (svg > g). Movement is done using addEventListener in JavaScript.   
+    When layout reached desktop breakpoint, relations stayed the same but there are difference in some other settings. These settings includes: <code>width</code>, <code>paddings</code>, <code>margins</code> and such things. In ***desktop scenario***, our *box email* & *whole wrapper* need to move when clicking. Since the *box email* image includes extra parts and we need for clicking only on box, its better include <code>svg</code> code in <code>html</code> instead of <code>img</code>. In our case, *box* code is grouped inside &lt;g&gt; tag (svg > g). Movement is done using ***addEventListener*** in JavaScript.   
 
-      * hierarchy of images
-          ```html
-              <div class="FAQ__decorative-images">
-                  <!-------------------------------------------- illustration -------------------------------------------->
-                  <div class="FAQ__illustration-shadow-wrapper">
-                      <picture class="FAQ__illustration">
-                          <source media="(min-width: 70em)" srcset="../src/images/illustration-woman-online-desktop.svg" >
-                          <img src="../src/images/illustration-woman-online-mobile.svg" alt="Illustration">
-                      </picture> 
-                      <!-------------------------------------------- shadow -------------------------------------------->
-                      <picture class="FAQ__shadow" >
-                          <source media="(min-width: 70em)" srcset="../src/images/bg-pattern-desktop.svg" >
-                          <img src="../src/images/bg-pattern-mobile.svg" alt="shadow">
-                      </picture> 
-                  </div> 
-                  <!-------------------------------------------- box -------------------------------------------->
-                  <picture class="FAQ__box" >
-                      <svg width="100%" height="100%" viewBox="0 0 191 184" ...><g transform="translate(50.93 2.125)">...</g></svg>
-                  </picture>
-              </div>                 
-          ```
-* Accordion:
-    The way that accordion work is that you can toggle between showing & hidding answer for the particular question. There is two way that we can implement our accordion functionality. One of the way is to allow only one open answer at the time. Another way is that question doesn't depend on the other questions - all can be open in the same time. First way was choosed here. In order to make these questions functional, we can use 'radio buttons'. Purpose of radio buttons is to allow user to select only one option at the time. **Note** If you decide to use second way for accordion, you can done it with 'checkbox'. 
-    Strength of the SASS can be also seen in this example. We can implement 'click event' in SASS without any help of JavaScript. Since the input (our radio button) has attribute checked, we can check if the button is clicked or not. If its value is "true" we can do something. There is two things that we need to change. When the button is clicked, we need to rotate our "arrow" image that is placed next to question. It can be done using 'transform' property and rotate(-180deg). In our "input[name="accordion"]:checked" selector, we need to use "Adjacent sibling selectors (+)". This select first element of certain type that is placed immediately after the reference element but within the same parent.
-    Second, we need to show answer. In order to do this, firstly we need to set max-height & opacity to '0'. Then, when button is cliked, we use "General sibling selectors (~)" to select all elements of certain type that is placed after the reference element within the same parent. When using this selector, wanted element doesn't need to be immediately preceded by reference element. Inside this selector, we will set max-height to '100vh' and opacity to '1'.
+    * hierarchy of images
+      ```html
+          <div class="FAQ__decorative-images">
+              <!-------------------------------------------- illustration -------------------------------------------->
+              <div class="FAQ__illustration-shadow-wrapper">
+                  <picture class="FAQ__illustration">
+                      <source media="(min-width: 70em)" srcset="../src/images/illustration-woman-online-desktop.svg" >
+                      <img src="../src/images/illustration-woman-online-mobile.svg" alt="Illustration">
+                  </picture> 
+                  <!-------------------------------------------- shadow -------------------------------------------->
+                  <picture class="FAQ__shadow" >
+                      <source media="(min-width: 70em)" srcset="../src/images/bg-pattern-desktop.svg" >
+                      <img src="../src/images/bg-pattern-mobile.svg" alt="shadow">
+                  </picture> 
+              </div> 
+              <!-------------------------------------------- box -------------------------------------------->
+              <picture class="FAQ__box" >
+                  <svg width="100%" height="100%" viewBox="0 0 191 184" ...><g transform="translate(50.93 2.125)">...</g></svg>
+              </picture>
+          </div>                 
+      ```
+* ***Accordion***:
+    The way that accordion work is that you can toggle between showing & hidding answer for the particular question. There is two way that we can implement our accordion functionality. ***One of the way*** is to allow only one open answer at the time. ***Another way*** is that question doesn't depend on the other questions - all can be open in the same time. <ins>***First way was choosed here***</ins>. In order to make these questions functional, we can use <code>radio buttons</code>. Purpose of radio buttons is to allow user to select only one option at the time. <ins>**Note** If you decide to use second way for accordion, you can done it with <code>checkbox</code>.</ins> <br/>
+    Strength of the SASS can be also seen in this example. We can implement ***click event*** in SASS without any help of JavaScript. Since the input (our radio button) has attribute checked, we can check if the button is clicked or not. If its value is "true" we can do something. <ins>There is two things that we need to change.</ins> When the button is clicked, we need to rotate our "arrow" image that is placed next to question. It can be done using <code>transform</code> property and *rotate(-180deg)*. In our "input[name="accordion"]:checked" selector, we need to use <ins>"Adjacent sibling selectors (+)"</ins>. This select first element of certain type that is placed immediately after the reference element but within the same parent.
+    Second, we need to show answer. In order to do this, firstly we need to set <code>max-height</code> & <code>opacity</code> to '0'. Then, when button is cliked, we use <ins>"General sibling selectors (~)"</ins> to select all elements of certain type that is placed after the reference element within the same parent. When using this selector, wanted element doesn't need to be immediately preceded by reference element. Inside this selector, we will set <code>max-height</code> to '100vh' and <code>opacity</code> to '1'.
 
-      * questions
-        ```html
-            <div class="FAQ__question">
-                <input type="radio" id="q2" name="accordion" checked="checked">
-                <label  class="FAQ__label" for="q2">What is the maximum file upload size? 
-                    <img src="../src/images/icon-arrow-down.svg" alt="arrow icon">
-                </label>
-                <div class="FAQ__answer">No more than 2GB. All files in your account must fit your allotted storage space.</div>
-            </div>
-        ```
-  
-      * click event simulation
-          ```sass
-                input[name="accordion"]:checked {
-                    + .FAQ__label {
-                        img {
-                            transform: rotate(-180deg);
-                        }
-                    }
-                    ~ .FAQ__answer {
-                        @extend %maxHeight-100vh;
-                        @extend %opacity-1;
-                        @include a.padding('pi-FAQ__answer', 'pb-FAQ__answer');
-                    }
-                }                                
-          ```                    
+    * questions
+      ```html
+          <div class="FAQ__question">
+              <input type="radio" id="q2" name="accordion" checked="checked">
+              <label  class="FAQ__label" for="q2">What is the maximum file upload size? 
+                  <img src="../src/images/icon-arrow-down.svg" alt="arrow icon">
+              </label>
+              <div class="FAQ__answer">No more than 2GB. All files in your account must fit your allotted storage space.</div>
+          </div>
+      ```
+
+    * click event simulation
+        ```sass
+              input[name="accordion"]:checked {
+                  + .FAQ__label {
+                      img {
+                          transform: rotate(-180deg);
+                      }
+                  }
+                  ~ .FAQ__answer {
+                      @extend %maxHeight-100vh;
+                      @extend %opacity-1;
+                      @include a.padding('pi-FAQ__answer', 'pb-FAQ__answer');
+                  }
+              }                                
+        ```                    
 
 ### Continued development
 
