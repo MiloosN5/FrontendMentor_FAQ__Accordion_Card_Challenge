@@ -1,0 +1,63 @@
+@use 'sass:map';
+@use '../abstracts/' as a;
+
+.FAQ {
+    &__illustration {
+        @include a.container('w-FAQ__illustration', 'mw-none', 'h-auto', 'void');
+        @include a.margin('mi-auto', 'mb-0');
+        @include a.position('p-relative', 'top-auto', 'right-auto', 'bottom-auto', 'left-auto');
+        z-index: map.get(a.$z-index, '10');
+        //------------------------------------------------- DESKTOP -------------------------------------------------//  
+        @include a.breakpoint('large') {
+            @include a.container('w-100%', 'mw-none', 'h-auto', 'void');
+            @include a.padding('pi-0', 'pb-FAQ-Desktop');
+            @include a.margin('mi-0', 'mb-0');
+        }
+        img {
+            @include a.margin('mi-0', 'mb-0');
+            //------------------------------------------------- DESKTOP -------------------------------------------------//    
+            @include a.breakpoint('large') {
+                @include a.container('w-100%', 'mw-none', 'h-auto', 'void');
+                @include a.margin('mi-FAQ__illustration', 'mb-0');
+            }
+        }
+    }
+    &__shadow {
+        @include a.container('w-FAQ__shadow', 'mw-none', 'h-auto', 'void');
+        @include a.margin('mi-auto', 'mb-0');
+        @include a.position('p-absolute', 'top-FAQ__shadow', 'right-auto', 'bottom-auto', 'left-FAQ__shadow');
+        z-index: map.get(a.$z-index, '1');
+        //------------------------------------------------- DESKTOP -------------------------------------------------//   
+        @include a.breakpoint('large') {
+            @include a.container('w-200%', 'mw-none', 'h-auto', 'void');
+            @include a.position('p-absolute', 'top-FAQ__shadow-Desktop', 'right-auto', 'bottom-auto', 'left-FAQ__shadow-Desktop');
+        }
+        img {
+            @include a.container('w-100%', 'mw-none', 'h-auto', 'void');
+        }
+    }
+
+    &__box {
+        @include a.container('w-FAQ__box', 'mw-none', 'h-auto', 'void');
+        @include a.margin('mi-0', 'mb-0');
+        @include a.position('p-absolute', 'top-FAQ__box', 'right-auto', 'bottom-auto', 'left-FAQ__box');
+        z-index: map.get(a.$z-index, '20');
+        //------------------------------------------------- DESKTOP -------------------------------------------------//   
+        @include a.breakpoint('large') {
+            @include a.container('w-FAQ__box-Desktop', 'mw-none', 'h-auto', 'void');
+            @include a.position('p-absolute', 'top-FAQ__box-Desktop', 'right-auto', 'bottom-auto', 'left-FAQ__box-Desktop');
+            @include a.transition('0.4s', 'ease-in-out');
+        }
+        svg {
+            @include a.container('w-auto%', 'mw-none', 'h-auto', 'void');
+        }
+    }    
+    &__label {
+        img {
+            @include a.container('w-FAQ__arrow', 'mw-none', 'h-FAQ__arrow', 'white');
+            @include a.margin('mi-FAQ__arrow', 'mb-auto');
+            @include a.transition('0.5s', 'ease-in-out');
+        }
+    }
+}
+

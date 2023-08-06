@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use 'functions' as f;
+@use 'variables' as v;
+
+//------------------------ DISPLAY ------------------------//
+%displayNone {
+    display: none;
+}
+
+//------------------------ OPACITY ------------------------//
+%opacity-0 {
+    opacity: 0;
+}
+
+%opacity-1 {
+    opacity: 1;
+}
+
+//------------------------ HEIGHT ------------------------//
+
+%maxHeight-0 {
+    max-height: 0;
+}
+
+%maxHeight-100vh {
+    max-height: 100vh;
+}
+
+//------------------------ BORDER ------------------------//
+
+%borderBottom-gray {
+    border-bottom: f.rem(1) solid map.get(v.$colors, 'light_grayish_blue');
+}

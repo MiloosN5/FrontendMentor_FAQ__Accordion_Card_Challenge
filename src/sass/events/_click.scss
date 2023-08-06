@@ -1,0 +1,15 @@
+@use '../abstracts/' as a;
+
+input[name="accordion"]:checked {
+    + .FAQ__label {
+        img {
+            transform: rotate(-180deg);
+        }
+    }
+    ~ .FAQ__answer {
+        @extend %maxHeight-100vh;
+        @extend %opacity-1;
+        @include a.padding('pi-FAQ__answer', 'pb-FAQ__answer');
+    }
+}
+

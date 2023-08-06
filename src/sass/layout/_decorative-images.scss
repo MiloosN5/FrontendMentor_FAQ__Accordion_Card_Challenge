@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../abstracts/' as a;
+
+.FAQ {
+    &__decorative-images {
+        @include a.container('w-100%', 'mw-none', 'h-auto', 'void');
+        @include a.position('p-relative', 'top-auto', 'right-auto', 'bottom-auto', 'left-auto');
+        //------------------------------------------------- DESKTOP -------------------------------------------------//   
+        @include a.breakpoint('large') {
+            @include a.container('w-FAQ__decorative-images', 'mw-none', 'h-FAQ-Desktop', 'void');
+        }
+    }
+    &__illustration-shadow-wrapper {
+        @include a.position('p-relative', 'top-auto', 'right-auto', 'bottom-auto', 'left-auto');
+        @include a.breakpoint('large') {
+            @include a.container('w-100%', 'mw-none', 'h-FAQ__illustration-shadow-wrapper', 'void');
+            overflow: map.get(a.$overflow, 'o-hidden');
+        }
+    }
+}
+
+

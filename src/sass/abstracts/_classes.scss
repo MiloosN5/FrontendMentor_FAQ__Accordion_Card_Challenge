@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use 'variables' as v;
+@use 'mixins' as m;
+
+
+@include m.breakpoint('large') {
+    .FAQ.FAQMove {
+        margin-inline: map.get(v.$margin, 'mi-0');
+    }
+    
+    .FAQ__box.boxMove {
+        margin-inline: map.get(v.$margin, 'mi-FAQ__box-boxMove');
+    }
+}

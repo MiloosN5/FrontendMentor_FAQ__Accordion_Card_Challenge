@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '../abstracts/' as a;
+
+.FAQ {
+    &__label {
+        @include a.transition('0.4s', 'ease-in-out');
+        @include a.flexbox('flex', 'fd-row', 'fjc-spaceBetween', 'fai-center', 'fw-wrap', 'cg-normal', 'rg-normal');
+    }
+    &__question {
+        overflow: map.get(a.$overflow, 'o-hidden');
+        @extend %borderBottom-gray;
+        @include a.padding('pi-0', 'pb-FAQ__question');
+    }
+    &__answer {       
+        @extend %maxHeight-0;
+        @extend %opacity-0;
+        @include a.transition('0.25s', 'ease-in-out');
+    }
+}
+
+
+
+
+

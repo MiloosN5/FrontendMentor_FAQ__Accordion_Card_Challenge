@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use '../abstracts/' as a;
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+* {
+    font-family: map.get(a.$fonts, 'ff-Kumbh_Sans');
+}
+
+.FAQ {
+    &__hero {
+        h1 {
+            @include a.font('fs-FAQ__title', 'fw-700', 'lh-default', 'very_dark_desaturated_blue', 'ls-normal');         
+        }
+    }
+    &__label {
+        @include a.font('fs-FAQ__question', 'fw-400', 'lh-default', 'very_dark_grayish_blue', 'ls-FAQ__question');         
+        text-align: map.get(a.$align, 'ta-left');
+        //------------------------------------------------- DESKTOP -------------------------------------------------//  
+        @include a.breakpoint('large') {
+            @include a.font('fs-FAQ__question', 'fw-400', 'lh-default', 'very_dark_grayish_blue', 'ls-FAQ__question-Desktop');         
+        }
+    }
+    &__answer {
+        @include a.font('fs-FAQ__answer', 'fw-400', 'lh-FAQ__answer', 'dark_grayish_blue', 'ls-FAQ__answer');         
+        text-align: map.get(a.$align, 'ta-left');
+    }
+}
+
+input[name="accordion"]:checked {
+    + .FAQ__label {
+        @include a.font('fs-FAQ__question', 'fw-700', 'lh-default', 'very_dark_desaturated_blue', 'ls-FAQ__question');
+        //------------------------------------------------- DESKTOP -------------------------------------------------//  
+        @include a.breakpoint('large') {
+            @include a.font('fs-FAQ__question', 'fw-700', 'lh-default', 'very_dark_desaturated_blue', 'ls-FAQ__question-Desktop');
+        }
+    }
+}
+
+
+

@@ -1,0 +1,203 @@
+@use 'sass:map';
+@use 'functions' as f;
+
+$colors: (
+    // primary
+        /*--------- text ---------*/
+        "very_dark_desaturated_blue": hsl(238, 29%, 16%),
+        "soft_red": hsl(14, 88%, 65%),
+        /*--------- gradient ---------*/
+        "soft_violet": hsl(273, 75%, 66%),
+        "soft_blue": hsl(240, 73%, 65%),
+    // neutral
+        /*--------- text ---------*/
+        'very_dark_grayish_blue': hsl(237, 12%, 33%),
+        'dark_grayish_blue': hsl(240, 6%, 50%),
+        /*--------- dividers ---------*/
+        'light_grayish_blue': hsl(240, 5%, 91%),
+    // additional
+    'white': rgb(255,255,255),
+    'void': rgba(255,255,255,0),
+);
+
+$fonts: (
+    //font-size
+    "fs-FAQ__title": f.rem(32),
+    "fs-FAQ__question": f.rem(14),
+    "fs-FAQ__answer": f.rem(12),
+    //font-weight
+    "fw-400": 400,
+    "fw-700": 700,
+    // font-family
+    "ff-Kumbh_Sans": ('Kumbh Sans', sans-serif)
+);
+
+$letter-spacing: (
+    'ls-normal': normal,
+    'ls-FAQ__question': f.rem(-0.4),
+    'ls-FAQ__question-Desktop': f.rem(0.1),
+    'ls-FAQ__answer': f.rem(0.05),
+);
+
+$line-heights: (
+    'lh-default': normal,
+    'lh-FAQ__answer': f.rem(17),
+);
+
+$breakpoints-up: (
+    'large': f.em(1120)
+);
+
+$align: (
+    'ta-left': left
+);
+
+$width: (
+    // width
+    'w-auto': auto,
+    'w-FAQ-Desktop': f.rem(922),
+    'w-FAQ__decorative-images': 51%,
+    'w-FAQ__illustration': 74%,
+    'w-FAQ__illustration-Desktop': 51%,
+    'w-FAQ__shadow': 72%,
+    'w-FAQ__box': 31%,
+    'w-FAQ__box-Desktop': 42%,
+    'w-FAQ__arrow': f.rem(10),
+    'w-100%': 100%,
+    'w-200%': 200%,
+    // max-width
+    'mw-none': none
+);
+
+$height: (
+    'h-auto': auto,
+    'h-FAQ-Desktop': f.rem(512),
+    'h-FAQ__illustration-shadow-wrapper': f.rem(512),
+    'h-FAQ__section-Desktop': f.rem(512),
+    'h-FAQ__arrow': f.rem(6),
+);
+
+$flex: (
+    // layout
+    'flex': flex,
+    'flex-inline': inline-flex,
+    // direction
+    'fd-row': row,
+    'fd-column': column,
+    // justify-content
+    'fjc-start': start,
+    'fjc-center': center,
+    'fjc-spaceBetween': space-between,
+    // align-items
+    'fai-start': start,
+    'fai-center': center,
+    // wrapping
+    'fw-nowrap': nowrap,
+    'fw-wrap': wrap,
+    // gaps (column & row)
+    'cg-normal': normal,
+    'rg-normal': normal
+);
+
+$grid: (
+    // columns
+    'grid-template-columns-1fr': 1fr,
+    // rows
+    'grid-template-rows-auto': auto,
+    // gap
+    'grid-gap-0': 0,
+);
+
+$margin: (
+    // inline
+    'mi-0': 0,
+    'mi-auto': auto,
+    'mi-FAQ-Desktop': f.rem(44) 0,
+    'mi-FAQ__illustration': f.rem(-83) 0,
+    'mi-FAQ__box-boxMove': f.rem(-35.2) 0,
+    'mi-FAQ__arrow': 0 f.rem(-1),
+    // block
+    'mb-0': 0,
+    'mb-auto': auto,
+    'mb-FAQ__section': -23% 0,
+    'mb-FAQ__section-Desktop': -55.5% 0
+);
+
+$padding: (
+    // inline
+    'pi-0': 0,
+    'pi-body': f.rem(24),
+    'pi-FAQ__answer': 0 f.rem(15),
+    'pi-FAQ__content': f.rem(24),
+    'pi-FAQ__content-Desktop': 0 f.rem(20),
+    'pi-FAQ__section-Desktop': f.rem(475) f.rem(93),
+    // block
+    'pb-0': 0,
+    'pb-body': f.rem(40),
+    'pb-FAQ-Desktop': 15% 0,
+    'pb-FAQ__section': 39% 0,
+    'pb-FAQ__section-Desktop': f.rem(64) f.rem(36),
+    'pb-FAQ__hero': 0 f.rem(16),
+    'pb-FAQ__hero-Desktop': 0 f.rem(22),
+    'pb-FAQ__content': 0 f.rem(48),
+    'pb-FAQ__question': f.rem(16),
+    'pb-FAQ__answer': f.rem(10) f.rem(2)
+);
+
+$transition: (
+    '0.25s': 0.25s,
+    '0.4s': 0.4s,
+    '0.5s': 0.5s,
+    'ease-in-out': ease-in-out
+);
+
+$z-index: (
+    '1': 1,
+    '10': 10,
+    '20': 20,
+);
+
+$overflow: (
+    'o-hidden': hidden,
+);
+
+$border: (
+    // border
+    'b-none': none,
+    // border-radius
+    'br-0': 0,
+    'br-20px': f.rem(20), 
+    'br-25px': f.rem(25), 
+);
+
+$position: (
+    // type
+    'p-absolute': absolute,
+    'p-relative': relative,
+    // sides
+        /*--------- top ---------*/
+        'top-0': f.rem(0),
+        'top-auto': auto,
+        'top-FAQ__shadow': 60%,
+        'top-FAQ__shadow-Desktop': -55%,
+        'top-FAQ__box': 36.5%,
+        'top-FAQ__box-Desktop': 39.5%,
+        /*--------- right ---------*/
+        'right-auto': auto,
+        /*--------- bottom ---------*/
+        'bottom-auto': auto,
+        /*--------- left ---------*/
+        'left-auto': auto,
+        'left-FAQ__shadow': 14%,
+        'left-FAQ__shadow-Desktop': -118%,
+        'left-FAQ__box': 11.3%,
+        'left-FAQ__box-Desktop': -20.5%
+);
+
+$box-shadow: (
+    'box-shadow-FAQ': 0 f.rem(40) f.rem(56) 0 rgba(0, 0, 0, 0.35),
+);
+
+
+
+

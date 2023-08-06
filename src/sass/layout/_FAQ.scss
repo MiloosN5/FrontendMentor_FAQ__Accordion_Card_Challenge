@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use '../abstracts/' as a;
+
+.FAQ {
+    @include a.flexbox('flex', 'fd-column', 'fjc-start', 'fai-center', 'fw-wrap', 'cg-normal', 'rg-normal');
+    @include a.container('w-100%', 'mw-none', 'h-auto', 'void');
+    @include a.position('p-relative', 'top-auto', 'right-auto', 'bottom-auto', 'left-auto');
+    @include a.border('b-none', 'br-20px');
+    @include a.transition('0.4s', 'ease-in-out');
+    //------------------------------------------------- DESKTOP -------------------------------------------------//   
+    @include a.breakpoint('large') {
+        @include a.flexbox('flex', 'fd-row', 'fjc-start', 'fai-center', 'fw-wrap', 'cg-normal', 'rg-normal');
+        @include a.container('w-FAQ-Desktop', 'mw-none', 'h-FAQ-Desktop', 'void');
+        @include a.margin('mi-FAQ-Desktop', 'mb-0');
+    }
+    &__section {
+        @include a.grid('grid-template-columns-1fr', 'grid-template-rows-auto', 'grid-gap-0');
+        @include a.container('w-100%', 'mw-none', 'h-auto', 'white');
+        @include a.padding('pi-0', 'pb-FAQ__section');
+        @include a.margin('mi-0', 'mb-FAQ__section');
+        @include a.border('b-none', 'br-25px');
+        @include a.position('p-relative', 'top-auto', 'right-auto', 'bottom-auto', 'left-auto');
+        @include a.boxShadow('box-shadow-FAQ');
+        //------------------------------------------------- DESKTOP -------------------------------------------------//  
+        @include a.breakpoint('large') {
+            @include a.container('w-100%', 'mw-none', 'h-FAQ__section-Desktop', 'white');
+            @include a.padding('pi-FAQ__section-Desktop', 'pb-FAQ__section-Desktop');
+            @include a.margin('mi-0', 'mb-FAQ__section-Desktop');
+        }
+    }
+    &__hero {
+        @include a.flexbox('flex', 'fd-column', 'fjc-start', 'fai-center', 'fw-wrap', 'cg-normal', 'rg-normal');
+        @include a.padding('pi-0', 'pb-FAQ__hero');
+        //------------------------------------------------- DESKTOP -------------------------------------------------//  
+        @include a.breakpoint('large') {
+            @include a.flexbox('flex', 'fd-column', 'fjc-start', 'fai-start', 'fw-wrap', 'cg-normal', 'rg-normal');
+            @include a.padding('pi-0', 'pb-FAQ__hero-Desktop');
+        }
+    }
+    &__content {
+        @include a.padding('pi-FAQ__content', 'pb-FAQ__content');
+        overflow: map.get(a.$overflow, 'o-hidden');
+        //------------------------------------------------- DESKTOP -------------------------------------------------//  
+        @include a.breakpoint('large') {
+            @include a.padding('pi-FAQ__content-Desktop', 'pb-FAQ__content');
+        }
+    }
+}
+

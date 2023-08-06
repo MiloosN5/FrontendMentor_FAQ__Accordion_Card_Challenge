@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '../abstracts/' as a;
+
+body {
+    //opacity: 0.6;
+    //background-image: url('../design/active-states.jpg');
+    @include a.flexbox('flex', 'fd-column', 'fjc-start', 'fai-center', 'fw-wrap', 'cg-normal', 'rg-normal');    
+    @include a.container('w-100%', 'mw-none', 'h-auto', 'void');
+    @include a.padding('pi-body', 'pb-body');
+    @include a.linear-gradient('soft_violet', 'soft_blue');
+    text-align: map.get(a.$align, 't-left');
+    //------------------------------------------------- DESKTOP -------------------------------------------------//  
+    @include a.breakpoint('large') {
+        @include a.flexbox('flex', 'fd-column', 'fjc-center', 'fai-center', 'fw-wrap', 'cg-normal', 'rg-normal');       
+        @include a.padding('pi-body', 'pb-0');
+    }
+}

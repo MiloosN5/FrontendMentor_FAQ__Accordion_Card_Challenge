@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../abstracts/' as a;
+
+.FAQ {
+    &__label {
+        &:hover {
+            color: map.get(a.$colors, 'soft_red');
+        }
+    }
+}

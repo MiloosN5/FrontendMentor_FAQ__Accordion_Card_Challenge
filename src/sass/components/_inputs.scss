@@ -1,0 +1,6 @@
+@use '../abstracts/' as a;
+
+input {
+    @include a.position('p-absolute', 'top-auto', 'right-auto', 'bottom-auto', 'left-auto');
+    @extend %opacity-0;
+}
